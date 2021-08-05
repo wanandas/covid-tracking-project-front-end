@@ -166,7 +166,7 @@ const ContainerPage = styled.div`
   display: grid;
   position: relative;
   min-height: 100vh;
-  padding: 4rem 0;
+  padding: 4rem 0 4rem;
   place-items: center;
   font-weight: 800;
   align-items: center;
@@ -174,12 +174,12 @@ const ContainerPage = styled.div`
   background: #292929;
   color: #dfdfdf;
   @media (min-width: 768px) {
-    padding: 0 0 2rem;
+    padding: 0;
   }
 `;
 
 const ApiBy = styled.p`
   position: absolute;
   bottom: 0;
-  right: 1rem;
+  right: 10%;
 `;
