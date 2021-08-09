@@ -1,18 +1,21 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { data } from "../data/dataCovid";
+import { fetchData } from "../utils/fetchdata";
 import { ItemValue } from "./ItemValue";
 
 export default function Home() {
   const [item, setItem] = useState(data);
 
   React.useEffect(() => {
-    fetch("https://static.easysunday.com/covid-19/getTodayCases.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setItem(data);
-        console.log(data);
-      });
+    (async () => {
+      const [res, err] = await fetchData();
+      if (err) {
+        console.error(err);
+      } else {
+        setItem(res);
+      }
+    })();
   }, []);
 
   return (
